@@ -1,4 +1,19 @@
-# WYY
-##网易云音乐最新项目
-该项目为手机端项目
-主要是模仿网易云音乐web项目
+# wyy_music
+
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
