@@ -17,3 +17,6 @@ yarn build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+###主要工作
+通过vuex实现play播放器功能
