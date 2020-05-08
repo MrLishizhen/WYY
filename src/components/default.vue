@@ -1,7 +1,7 @@
 <template>
   <div class="default_box">
     <div class="default_box_bom">
-      <div class="default_item" v-for="(item,i) in data" :key='item.id'>
+      <div class="default_item" v-for="(item,i) in data" :key='item.id' @click='music(item.id)'>
         <div class="dafault_item_left">
           <i v-text="i+1" style="width:0.6rem;line-height: 0.6rem;flex-shrink: 0"></i>
           <div class="dafault-cont">
@@ -24,6 +24,16 @@ export default {
 	  
   },
   methods: {
+    music(id){
+        let musicID = this.$route.params.id;
+        this.$plays.musicClick(id,musicID).then(res=>{
+          if(res){
+            //打开play页面
+          }else{
+            //什么都不做
+          }
+        });
+    },
     getAr(arr) {
       let a = arr;
       let b = [];

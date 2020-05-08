@@ -96,7 +96,7 @@ export default {
           .then(res => {
             if (res.code === 200) {
               cookie.set("u_n", res.profile.userId);
-              cookie.get('from')?this.$router.push(cookie.get('from')):this.$router.push("/home");
+              cookie.get('from')?this.$router.replace(cookie.get('from')):this.$router.replace("/home");
               
             }
           })

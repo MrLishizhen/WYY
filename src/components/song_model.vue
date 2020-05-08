@@ -59,7 +59,7 @@
 	.song-item-img{
 		width:94%;
 		border-radius: 0.1rem;
-
+		min-height:0.8rem;
 	}
 	.text{
 		font-size:0.12rem;

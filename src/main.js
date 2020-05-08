@@ -27,15 +27,23 @@ Vue.use(VueLazyload,{
         // error:require('./assets/loading.gif'),
 })
 
-Vue.use(VueAwesomeSwiper)
+Vue.use(VueAwesomeSwiper);
+
+import plays from './util/play';//和播放相关的方法
+
+Vue.prototype.$plays = plays;
+import message from './util/message';
+Vue.use(message);
 
 
 Vue.prototype.$http=http;
 Vue.config.productionTip = false
 
 
-new Vue({
+let vue=new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+
+export default vue;

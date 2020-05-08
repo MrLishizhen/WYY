@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="me_y" v-else>
-      <div class="user" v-lazy:background-image="userData.backgroundUrl">
+      <div class="user" :style="{backgroundImage: `url(${userData.backgroundUrl})`}">
         <img v-lazy="userData.avatarUrl" alt />
         <div class="userDefault">
           <span class="name">{{userData.nickname}}</span>

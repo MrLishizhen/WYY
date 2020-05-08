@@ -48,7 +48,7 @@ export default {
   },
   created() {
     if (!cookie.get("u_n")) {
-      this.$router.push("/login");
+      this.$router.push("/me");
     }
     this.$http({ url: "/recommend/songs" }).then(res => {
       this.data = res.recommend;

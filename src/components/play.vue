@@ -1,27 +1,37 @@
 <template>
-  <div class="play" >
+  <div class="play">
     <!-- 播放 -->
     <div class="play-top">
-      <div class="play-top-left iconfont" @click='hide'>&#xe607;</div>
+      <div class="play-top-left iconfont" @click="hide">&#xe607;</div>
       <div class="play-top-cont ellipsis">{{data.musicName||'播放器'}}</div>
       <div class="play-top-right iconfont">&#xe617;</div>
     </div>
     <div class="play-cont">
       <div class="play-cont-cont">
         <div class="play-cont-cont-img">
-          <img src="" alt="" class='img'>
+          <img src alt class="img" />
         </div>
       </div>
     </div>
     <div class="play-foot">
-        <div class='foot-top'></div>
-        <div class='foot-btm'>
-          <div class='iconfont random' v-html='random'></div>
-          <div class='iconfont'></div>
-          <div class='iconfont'></div>
-          <div class='iconfont'></div>
-          <div class='iconfont'></div> 
+      <div class="foot-top"></div>
+      <div class="foot-btm">
+        <div class="random-box">
+          <span class="iconfont random" v-html="Button.random"></span>
         </div>
+        <div class="Last-box">
+          <span class="iconfont Last" v-html="Button.Last"></span>
+        </div>
+        <div class="Play-box">
+            <span class="iconfont Last" @click='show' style='font-size:0.32rem;' v-html="Button.Play"></span>
+        </div>
+        <div class="Next-box">
+           <span class="iconfont Next" v-html="Button.Next"></span>
+        </div>
+        <div class="song-box">
+           <span class="iconfont song" v-html="Button.song"></span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,13 +41,27 @@ export default {
   data() {
     return {
       data: {},
-      random:'&#xe77d;'
+      Button:{
+        random: "&#xe77d;",
+        Last:'&#xe60b;',
+        Play:'&#xe628;',
+        Next:'&#xe60b;',
+        song:'&#xe636;',
+      }
     };
   },
-  methods:{
-    hide(){
-      this.$store.commit('isShow',false);
+  created(){
+    this.$plays.verification(347230);
+    
+  },
+  methods: {
+    hide() {
+      this.$store.commit("isShow", false);
+    },
+    show(){
+      this.$message('暗巫版权，轻轻期待暗巫版权，轻轻期待暗巫版权，轻轻期待');
     }
+
   }
 };
 </script>
@@ -79,19 +103,18 @@ export default {
   line-height: 0.6rem;
   font-size: 0.16rem;
 }
-.play-cont-cont-img{
-  width:70%;
-  height:70%;
+.play-cont-cont-img {
+  width: 70%;
+  height: 70%;
   background-color: #fff;
   border-radius: 50%;
-
 }
 .play-cont-cont {
   width: 2.5rem;
   height: 2.5rem;
-  background-color:rgba(0,0,0,.7);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 50%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -109,22 +132,38 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 .play-foot {
   height: 1.5rem;
   flex-shrink: 0;
   background-color: #000;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
-.foot-top{
-  height:0.6rem;
-  background-color:red;
+.foot-top {
+  height: 0.6rem;
+  background-color: red;
   flex-shrink: 0;
 }
-.foot-btm{
+.foot-btm {
   flex-grow: 1;
-
+  display: flex;
+}
+.foot-btm > div {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.foot-btm > div>span {
+  width: 0.4rem;
+  height: 0.4rem;
+  text-align: center;
+  line-height: 0.4rem;
+  font-size: 0.26rem;
+}
+.Next{
+  transform: rotate(180deg);
 }
 </style>
